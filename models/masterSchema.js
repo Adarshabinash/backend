@@ -5,7 +5,7 @@ const masterSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  class: {
+  classname: {
     type: Number,
     required: true,
   },
@@ -16,6 +16,10 @@ const masterSchema = new mongoose.Schema({
   subject: {
     type: String,
     required: true,
+  },
+  studentid: {
+    type: Number,
+    default: () => new Date().getTime(),
   },
 });
 
