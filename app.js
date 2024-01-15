@@ -1,19 +1,16 @@
 const express = require("express");
 const app = express();
-const port = 3000;
-
-//^----------------File imports------------------------------->
+const port = process.env.PORT || 3001;
 const dbConnection = require("./connection");
-const router = require("./routes/index");
+const routers = require("./router");
 
 app.use(express.json());
 
-app.use("/", router);
+app.use("/", routers);
 
-app.listen(() => {
+app.listen(port, () => {
   console.log(
-    `<------------------------Server is running at ${port}----------------------------->`
+    `<------------Server is running at port ${port}------------------->`
   );
   dbConnection();
-  // console.log("first");
 });

@@ -1,18 +1,17 @@
-const express = require("express");
 const mongoose = require("mongoose");
 
 const dbConnection = () => {
   mongoose.set("strictQuery", false);
-  mongoose.connect("mongodb://0.0.0.0/studentDB");
+  mongoose.connect("mongodb://0.0.0.0/student_database");
   const conn = mongoose.connection;
 
   conn.on("error", (err) => {
-    console.error(`The error-------> ${err}`);
+    console.error(`The error is: ${err}`);
   });
 
   conn.on("open", () => {
     console.log(
-      `<------------------------Successfully connected to the Database---------------->`
+      "-------------------Connected to the DB-------------------------"
     );
   });
 };

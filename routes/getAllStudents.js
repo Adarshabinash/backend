@@ -1,13 +1,11 @@
-const studentModel = require("../models/index");
+const parentModel = require("../models/masterSchema");
 
 const getAllStudents = async (req, res) => {
-  console.log(`req----> ${req}    `);
   try {
-    const allStudents = await studentModel.find();
-    res.send(allStudents);
-    console.log("Api hit");
-  } catch (err) {
-    console.error(`The following error occurred---> ${err}`);
+    const allStudData = await parentModel.find();
+    res.send(allStudData);
+  } catch (error) {
+    res.send(`The error is- ${error}`);
   }
 };
 
